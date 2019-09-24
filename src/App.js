@@ -11,7 +11,7 @@ function LabeledSlider({ label, value, setValue }) {
          min="0"
          max="255"
          value={value}
-         onChange={(event)=>{setValue(event.target.value)}}/>
+         onChange={(event)=>{setValue(parseInt(event.target.value,10))}}/>
       <span>{value}</span>
       </div>
   );
@@ -19,10 +19,7 @@ function LabeledSlider({ label, value, setValue }) {
 
 LabeledSlider.propTypes = {
   label: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
+  value: PropTypes.number.isRequired,
   setValue: PropTypes.func.isRequired,
 };
 
