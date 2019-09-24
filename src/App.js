@@ -19,6 +19,16 @@ function LabeledSlider({ label }){
   );
 }
 
+function ColorPicker() {
+  return (
+    <div className="color-picker">
+    <div className="color-swatch"></div>
+    <LabeledSlider label="red"/>
+    <LabeledSlider label="green"/>
+    <LabeledSlider label="blue"/>
+    </div>
+  );
+}
 
 // function Message({ action }){
 
@@ -32,7 +42,7 @@ function LabeledSlider({ label }){
 function App() {
 
   return (
-    <LabeledSlider label="red" />
+    <ColorPicker />
   );
 }
 
