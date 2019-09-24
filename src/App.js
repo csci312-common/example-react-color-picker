@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './App.css';
 
 
@@ -15,6 +16,16 @@ function LabeledSlider({ label, value, setValue }) {
       </div>
   );
 }
+
+LabeledSlider.propTypes = {
+  label: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+  setValue: PropTypes.func.isRequired,
+};
+
 
 function ColorPicker() {
   const [red, setRed] = useState(0);
