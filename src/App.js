@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import './App.css';
+import styled from 'styled-components';
 
+
+
+const ColorLabel = styled.div`
+  display: inline-block;
+  width: 50px;
+  text-align: left;
+`;
 
 function LabeledSlider({ label, value, setValue }) {
   return (
     <div>
-      <div className="color-label">{label}:</div>
+      <ColorLabel>{label}:</ColorLabel>
       <input type="range" 
          min="0"
          max="255"
@@ -24,6 +31,12 @@ LabeledSlider.propTypes = {
 };
 
 
+const ColorSwatch = styled.div`
+  width:100px; 
+  height:100px; 
+  border:1px solid black;
+`;
+
 function ColorPicker() {
   const [red, setRed] = useState(0);
   const [green, setGreen] = useState(0);
@@ -32,7 +45,7 @@ function ColorPicker() {
   const color = {background: `rgb(${red}, ${green}, ${blue})`};
   return (
     <div className="color-picker">
-      <div className="color-swatch" style={color}></div>
+      <ColorSwatch style={color} />
       <LabeledSlider label="red"   value={red}   setValue={(value)=>{setRed(value)}}/>
       <LabeledSlider label="green" value={green} setValue={(value)=>{setGreen(value)}}/>
       <LabeledSlider label="blue"  value={blue}  setValue={(value)=>{setBlue(value)}}/>
